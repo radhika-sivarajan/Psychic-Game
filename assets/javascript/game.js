@@ -20,7 +20,7 @@ function updateScoreboard(win, loss, guessLeft, userLetters){
 	
 	//Changing the color user input letters
 	var ul = document.getElementById("user-letters");
-  	ul.style.color = "blue";
+  	ul.style.color = "mediumblue";
 
   	//injecting HTML
     document.getElementById("score").innerHTML = score;			
@@ -35,7 +35,7 @@ document.onkeydown = function(event) {
 	//If key pressed is an alphabet
 	if (event.keyCode >= 65 && event.keyCode <= 90){
 
-		//Append user inputs to the array
+		//Append user input letter to the array
 		userLetters.push(userGuess);
 
 		//If user guess is correct

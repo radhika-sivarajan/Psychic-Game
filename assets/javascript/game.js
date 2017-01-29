@@ -16,9 +16,16 @@ function resetScore(){
 //Update scoreboard
 function updateScoreboard(win, loss, guessLeft, userLetters){
 
-	var scoreboard = "Wins: " + win + "<br>Loss: " + loss + "<br>Guess left: " + guessLeft + "<br>Your guess so far " + userLetters;
-    document.getElementById("score").innerHTML = scoreboard;
-    //console.log(computerChoice);			
+	var score = "Wins: " + win + "<br>Loss: " + loss + "<br>Guess left: " + guessLeft + "<p>Your guess so far</p> ";
+	
+	//Changing the color user input letters
+	var ul = document.getElementById("user-letters");
+  	ul.style.color = "blue";
+
+  	//injecting HTML
+    document.getElementById("score").innerHTML = score;			
+    document.getElementById("user-letters").innerHTML = userLetters;
+    //console.log(computerChoice);
 }
 
 document.onkeydown = function(event) {	    	
@@ -28,7 +35,7 @@ document.onkeydown = function(event) {
 	//If key pressed is an alphabet
 	if (event.keyCode >= 65 && event.keyCode <= 90){
 
-		//Append user input to the array
+		//Append user inputs to the array
 		userLetters.push(userGuess);
 
 		//If user guess is correct

@@ -38,7 +38,7 @@ body{
 				0 0 40px #A5F1FF;
 }
 
-#score{
+.score-board{
 
 	border-style: solid;
 	border-width: 20px;
@@ -47,12 +47,18 @@ body{
 	border-image: url("../images/gold_border1.jpg") 82 94 94 85 fill repeat;
 	margin-top: 20px;
 	margin-bottom: 20px;
-	padding: 10px;
-	font-family: "Times New Roman", Georgia, Serif;
+	color: black;
+	font-family: Arial Black, Gadget, sans-serif;
     font-size: 20px;
     font-weight: 700;
+	text-shadow: 4px 4px 6px rgba(0,0,0,0.5) ;
 }
  footer {
  	color: white;
  	padding: 5px;
+ }
+
+/*Display user input letters in uppercase*/
+ #user-letters {
+ 	text-transform: uppercase;
  }

@@ -18,11 +18,10 @@ function updateScoreboard(win, loss, guessLeft, userLetters){
 
 	var scoreboard = "Wins: " + win + "<br>Loss: " + loss + "<br>Guess left: " + guessLeft + "<br>Your guess so far " + userLetters;
     document.getElementById("score").innerHTML = scoreboard;
-    console.log(computerChoice);			
+    //console.log(computerChoice);			
 }
 
 document.onkeydown = function(event) {	    	
-
     var userGuess = event.key.toLowerCase();		    
 	guessLeft--;
 	

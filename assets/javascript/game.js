@@ -6,50 +6,45 @@ var guessLeft = 9;
 var computerChoice = options[Math.floor(Math.random() * options.length)];
 var userLetters = new Array();
 
-window.onkeydown = function(event) {	    	
+//Reset values of user input array, guessleft and computer choose another letter
+function resetScore(){
+	userLetters.splice(0,userLetters.length);	
+	guessLeft = 9;
+	computerChoice = options[Math.floor(Math.random() * options.length)];
+}
 
-    var scoreboard;
-    var userGuess = event.key.toLowerCase();	    
+//Update scoreboard
+function updateScoreboard(win, loss, guessLeft, userLetters){
+
+	var scoreboard = "Wins: " + win + "<br>Loss: " + loss + "<br>Guess left: " + guessLeft + "<br>Your guess so far " + userLetters;
+    document.getElementById("score").innerHTML = scoreboard;
+    console.log(computerChoice);			
+}
+
+document.onkeydown = function(event) {	    	
+
+    var userGuess = event.key.toLowerCase();		    
 	guessLeft--;
-	userLetters.push(userGuess);
 	
-
 	//If key pressed is an alphabet
 	if (event.keyCode >= 65 && event.keyCode <= 90){
 
-	
+		//Append user input to the array
+		userLetters.push(userGuess);
+
 		//If user guess is correct
-		if(userGuess==computerChoice){
+		if(userGuess===computerChoice){
 			win++;	
-
-			//Reset values of user input array, guessleft and computer choose another letter
-			userLetters.splice(0,userLetters.length);	
-			guessLeft = 9;
-			computerChoice = options[Math.floor(Math.random() * options.length)];
-
+			resetScore();
     	}
-
-    	//Update scoreboard
-    	scoreboard = "Wins: " + win + "<br>Loss: " + loss + "<br>Guess left: " + guessLeft + "<br>Your gues so far " + userLetters;
-    	document.getElementById("score").innerHTML = scoreboard;
-    	//console.log(computerChoice);
+    	updateScoreboard(win, loss, guessLeft, userLetters);
 			
 		//If guess left is 0
 		if (guessLeft<1){
 			loss++;
-
-			//Reset values of user input array, guessleft and computer choose another letter
-			userLetters.splice(0,userLetters.length);
-			guessLeft = 9;
-			computerChoice = options[Math.floor(Math.random() * options.length)];
-
+			resetScore();
 		}
-
-		//Update scoreboard
-		scoreboard = "Wins: " + win + "<br>Loss: " + loss + "<br>Guess left: " + guessLeft + "<br>Your gues so far " + userLetters;
-		document.getElementById("score").innerHTML = scoreboard;		
-		//console.log(computerChoice);
+		updateScoreboard(win, loss, guessLeft, userLetters);
 	}
-
 };
 

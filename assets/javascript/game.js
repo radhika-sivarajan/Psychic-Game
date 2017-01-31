@@ -28,13 +28,12 @@ function updateScoreboard(win, loss, guessLeft, userLetters){
     //console.log(computerChoice);
 }
 
-document.onkeydown = function(event) {	    	
-    var userGuess = event.key.toLowerCase();		    
-	guessLeft--;
+document.onkeydown = function(event) {	    	  		    
 	
 	//If key pressed is an alphabet
 	if (event.keyCode >= 65 && event.keyCode <= 90){
-
+		var userGuess = event.key.toLowerCase();
+		guessLeft--;
 		//Append user input letter to the array
 		userLetters.push(userGuess);
 
@@ -51,6 +50,9 @@ document.onkeydown = function(event) {
 			resetScore();
 		}
 		updateScoreboard(win, loss, guessLeft, userLetters);
+	}
+	else{
+		alert("Enter an alphabet");
 	}
 };
 

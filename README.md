@@ -2,7 +2,7 @@
 
 App randomly picks a letter, and the user has to guess which letter the app chose. Following text on the page:
 
-    Guess what letter I'm thinking of.
+	Guess what letter I'm thinking of.
     Wins: (# of times the user has guessed the letter correctly)
     Losses: (# of times the user has failed to guess the letter correctly after exhausting all guesses)
     Guesses Left: (# of guesses left. This will update)
